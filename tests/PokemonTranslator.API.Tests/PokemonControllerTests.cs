@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using Moq;
 using PokemonTranslator.API.Controllers;
-using PokemonTranslator.API.DTOs;
+using PokemonTranslator.DTO;
 using PokemonTranslator.API.Services;
 using System;
 using System.Threading.Tasks;

@@ -1,4 +1,4 @@
-﻿using PokemonTranslator.API.DTOs;
+﻿using PokemonTranslator.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;

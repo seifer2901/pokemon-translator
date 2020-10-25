@@ -1,6 +1,6 @@
 using System;
 
-namespace PokemonTranslator.API.DTOs
+namespace PokemonTranslator.DTO
 {
 	public class Pokemon
 	{

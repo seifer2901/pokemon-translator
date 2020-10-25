@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\PokemonTranslator.API\PokemonTranslator.API.csproj" />
+    <ProjectReference Include="..\..\src\PokemonTranslator.DTO\PokemonTranslator.DTO.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using PokemonTranslator.API.DTOs;
+using PokemonTranslator.DTO;
 using PokemonTranslator.API.Services;
 
 namespace PokemonTranslator.API.Controllers
