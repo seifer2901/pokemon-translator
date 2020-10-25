@@ -4,8 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
+using Moq;
 using PokemonTranslator.API.Controllers;
 using PokemonTranslator.API.DTOs;
+using PokemonTranslator.API.Services;
 using System;
 using System.Threading.Tasks;
 using Xunit;
@@ -20,11 +22,12 @@ namespace PokemonTranslator.API.Tests
 		[InlineData(null)]
 		public async Task Get_InvalidPokemonName_ShouldReturnBadRequest(string pokemonName)
 		{
-			var controller = new PokemonController(NullLogger<PokemonController>.Instance);
+			var pokemonService = new Mock<IPokemonService>();
+			var controller = new PokemonController(NullLogger<PokemonController>.Instance, pokemonService.Object);
 
 			var actionResult = await controller.Get(pokemonName);
 			
-			actionResult.Result.Should().BeOfType<BadRequestResult>();
+			actionResult.Result.Should().BeOfType<BadRequestObjectResult>();
 		}
 
 		[Theory]
@@ -32,26 +35,37 @@ namespace PokemonTranslator.API.Tests
 		[InlineData("pikachu")]
 		public async Task Get_ValidExistingPokemonName_ShouldReturnPokemon(string pokemonName)
 		{
-			var controller = new PokemonController(NullLogger<PokemonController>.Instance);
+			var expectedDescription = pokemonName.ToUpper();
+			var pokemonService = new Mock<IPokemonService>();
+			pokemonService.Setup(service => service.GetPokemon(pokemonName))
+				.ReturnsAsync(
+					new Pokemon() 
+					{ 
+						Name = pokemonName, Description = expectedDescription
+					});
+			var controller = new PokemonController(NullLogger<PokemonController>.Instance, pokemonService.Object);
 
 			var actionResult = await controller.Get(pokemonName);
 
-			actionResult.Result.Should().BeOfType<OkResult>();
-			actionResult.Value.Should().BeOfType<Pokemon>();
-
-			var pokemon = actionResult.Value as Pokemon;
+			actionResult.Result.Should().BeOfType<OkObjectResult>();
+			var okResult = actionResult.Result as OkObjectResult;
+			okResult.Value.Should().BeOfType<Pokemon>();
+			var pokemon = okResult.Value as Pokemon;
 			pokemon.Name.Should().Equals(pokemonName);
+			pokemon.Description.Should().Equals(expectedDescription);
 		}
 
 		[Theory]
 		[InlineData("not-exist")]
 		public async Task Get_ValidNotExistingPokemonName_ShouldReturnNotFound(string pokemonName)
 		{
-			var controller = new PokemonController(NullLogger<PokemonController>.Instance);
+			var pokemonService = new Mock<IPokemonService>();
+			pokemonService.Setup(service => service.GetPokemon(pokemonName)).ReturnsAsync((Pokemon)null);
+			var controller = new PokemonController(NullLogger<PokemonController>.Instance, pokemonService.Object);
 
 			var actionResult = await controller.Get(pokemonName);
 
-			actionResult.Result.Should().BeOfType<NotFoundResult>();
+			actionResult.Result.Should().BeOfType<NotFoundObjectResult>();
 		}
 	}
 }
