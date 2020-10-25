@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging.Abstractions;
 using Moq;
 using PokemonTranslator.API.Controllers;
 using PokemonTranslator.DTO;
-using PokemonTranslator.API.Services;
+using PokemonTranslator.Abstractions;
 using System;
 using System.Threading.Tasks;
 using Xunit;
@@ -22,7 +22,7 @@ namespace PokemonTranslator.API.Tests
 		[InlineData(null)]
 		public async Task Get_InvalidPokemonName_ShouldReturnBadRequest(string pokemonName)
 		{
-			var pokemonService = new Mock<IPokemonService>();
+			var pokemonService = new Mock<IPokemonTranslationService>();
 			var controller = new PokemonController(NullLogger<PokemonController>.Instance, pokemonService.Object);
 
 			var actionResult = await controller.Get(pokemonName);
@@ -36,7 +36,7 @@ namespace PokemonTranslator.API.Tests
 		public async Task Get_ValidExistingPokemonName_ShouldReturnPokemon(string pokemonName)
 		{
 			var expectedDescription = pokemonName.ToUpper();
-			var pokemonService = new Mock<IPokemonService>();
+			var pokemonService = new Mock<IPokemonTranslationService>();
 			pokemonService.Setup(service => service.GetPokemon(pokemonName))
 				.ReturnsAsync(
 					new Pokemon() 
@@ -59,7 +59,7 @@ namespace PokemonTranslator.API.Tests
 		[InlineData("not-exist")]
 		public async Task Get_ValidNotExistingPokemonName_ShouldReturnNotFound(string pokemonName)
 		{
-			var pokemonService = new Mock<IPokemonService>();
+			var pokemonService = new Mock<IPokemonTranslationService>();
 			pokemonService.Setup(service => service.GetPokemon(pokemonName)).ReturnsAsync((Pokemon)null);
 			var controller = new PokemonController(NullLogger<PokemonController>.Instance, pokemonService.Object);
 

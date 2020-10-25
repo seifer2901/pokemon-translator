@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PokemonTranslator.DTO;
-using PokemonTranslator.API.Services;
+using PokemonTranslator.Abstractions;
 
 namespace PokemonTranslator.API.Controllers
 {
@@ -15,9 +15,9 @@ namespace PokemonTranslator.API.Controllers
 	public class PokemonController : ControllerBase
 	{
 		private readonly ILogger<PokemonController> _logger;
-		private readonly IPokemonService _pokemonService;
+		private readonly IPokemonTranslationService _pokemonService;
 
-		public PokemonController(ILogger<PokemonController> logger, IPokemonService pokemonService)
+		public PokemonController(ILogger<PokemonController> logger, IPokemonTranslationService pokemonService)
 		{
 			_logger = logger;
 			_pokemonService = pokemonService;

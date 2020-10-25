@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PokemonTranslator.Abstractions\PokemonTranslator.Abstractions.csproj" />
     <ProjectReference Include="..\PokemonTranslator.DTO\PokemonTranslator.DTO.csproj" />
   </ItemGroup>
 
