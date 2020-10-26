@@ -4,8 +4,4 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\PokemonTranslator.DTO\PokemonTranslator.DTO.csproj" />
-  </ItemGroup>
-
 </Project>

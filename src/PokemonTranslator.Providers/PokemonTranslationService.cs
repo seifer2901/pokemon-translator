@@ -1,5 +1,5 @@
-﻿using PokemonTranslator.Abstractions;
-using PokemonTranslator.DTO;
+﻿using PokemonTranslator.Abstractions.Services;
+using PokemonTranslator.Abstractions.Models;
 using System;
 using System.Threading.Tasks;
 

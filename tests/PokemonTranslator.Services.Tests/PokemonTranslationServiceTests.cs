@@ -1,11 +1,10 @@
 using Moq;
-using PokemonTranslator.Abstractions;
 using PokemonTranslator.Providers;
 using System;
 using Xunit;
 using FluentAssertions;
 using System.Threading.Tasks;
-using PokemonTranslator.DTO;
+using PokemonTranslator.Abstractions.Services;
 
 namespace PokemonTranslator.Services.Tests
 {
@@ -17,7 +16,7 @@ namespace PokemonTranslator.Services.Tests
 		{
 			var pokemonRepositoryService = new Mock<IPokemonRepositoryService>();
 			var translationService = new Mock<ITranslationService>();
-			pokemonRepositoryService.Setup(repo => repo.GetPokemon(pokemonName)).ReturnsAsync((PokemonRepositoryEntry)null);
+			pokemonRepositoryService.Setup(repo => repo.GetPokemon(pokemonName)).ReturnsAsync((PokemonData)null);
 
 			var pokemonTranslationService = new PokemonTranslationService(pokemonRepositoryService.Object, translationService.Object);
 
@@ -37,7 +36,7 @@ namespace PokemonTranslator.Services.Tests
 			var translationService = new Mock<ITranslationService>();
 			pokemonRepositoryService.Setup(repo => repo.GetPokemon(pokemonName))
 				.ReturnsAsync(
-					new PokemonRepositoryEntry()
+					new PokemonData()
 					{
 						Name = pokemonName,
 						Description = expectedDescription

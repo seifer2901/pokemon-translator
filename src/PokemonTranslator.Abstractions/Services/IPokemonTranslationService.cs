@@ -1,10 +1,10 @@
-﻿using PokemonTranslator.DTO;
+﻿using PokemonTranslator.Abstractions.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PokemonTranslator.Abstractions
+namespace PokemonTranslator.Abstractions.Services
 {
 	public interface IPokemonTranslationService
 	{

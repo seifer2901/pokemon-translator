@@ -4,9 +4,9 @@ using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonTranslator.Abstractions
+namespace PokemonTranslator.Abstractions.Services
 {
-	public class PokemonRepositoryEntry
+	public class PokemonData
 	{
 		public string Name { get; set; }
 		public string Description { get; set; }
@@ -14,6 +14,6 @@ namespace PokemonTranslator.Abstractions
 
 	public interface IPokemonRepositoryService
 	{
-		Task<PokemonRepositoryEntry> GetPokemon(string name);
+		Task<PokemonData> GetPokemon(string name);
 	}
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonTranslator.Abstractions
+namespace PokemonTranslator.Abstractions.Services
 {
 	public interface ITranslationService
 	{

@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PokemonTranslator.DTO;
-using PokemonTranslator.Abstractions;
+using PokemonTranslator.Abstractions.Services;
+using PokemonTranslator.API.Exstensions;
 
 namespace PokemonTranslator.API.Controllers
 {
@@ -28,7 +29,7 @@ namespace PokemonTranslator.API.Controllers
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
 		[ProducesResponseType(StatusCodes.Status400BadRequest)]
-		public async Task<ActionResult<Pokemon>> Get([FromRoute] string pokemonName)
+		public async Task<ActionResult<PokemonDTO>> Get([FromRoute] string pokemonName)
 		{
 			if (string.IsNullOrWhiteSpace(pokemonName))
 			{
@@ -40,7 +41,7 @@ namespace PokemonTranslator.API.Controllers
 			if (pokemon is null)
 				return NotFound(pokemonName);
 			else
-				return Ok(pokemon);
+				return Ok(pokemon.ToDTO());
 		}
 	}
 }

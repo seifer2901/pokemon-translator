@@ -7,10 +7,11 @@ using Microsoft.Extensions.Logging.Abstractions;
 using Moq;
 using PokemonTranslator.API.Controllers;
 using PokemonTranslator.DTO;
-using PokemonTranslator.Abstractions;
+using PokemonTranslator.Abstractions.Services;
 using System;
 using System.Threading.Tasks;
 using Xunit;
+using PokemonTranslator.Abstractions.Models;
 
 namespace PokemonTranslator.API.Tests
 {
@@ -49,8 +50,8 @@ namespace PokemonTranslator.API.Tests
 
 			actionResult.Result.Should().BeOfType<OkObjectResult>();
 			var okResult = actionResult.Result as OkObjectResult;
-			okResult.Value.Should().BeOfType<Pokemon>();
-			var pokemon = okResult.Value as Pokemon;
+			okResult.Value.Should().BeOfType<PokemonDTO>();
+			var pokemon = okResult.Value as PokemonDTO;
 			pokemon.Name.Should().Equals(pokemonName);
 			pokemon.Description.Should().Equals(expectedDescription);
 		}
