@@ -48,8 +48,9 @@ namespace PokemonTranslator.Services.Tests
 			var pokemon = await pokemonTranslationService.GetPokemon(pokemonName);
 
 			pokemon.Should().NotBeNull();
-			pokemon.Name.Should().Equals(pokemonName);
-			pokemon.Description.Should().Equals(expectedTranslation);
+			pokemon.Name.Should().Be(pokemonName);
+			pokemon.Description.Should().Be(expectedDescription);
+			pokemon.TranslatedDescription.Should().Be(expectedTranslation);
 		}
 	}
 }

@@ -29,7 +29,8 @@ namespace PokemonTranslator.Services
 			var pokemon = new Pokemon
 			{
 				Name = pokemonRepoEntry.Name,
-				Description = translatedDescription
+				Description = pokemonRepoEntry.Description,
+				TranslatedDescription = translatedDescription
 			};
 
 			return pokemon;
