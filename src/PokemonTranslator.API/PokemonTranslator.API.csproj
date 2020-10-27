@@ -19,7 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\PokemonTranslator.Abstractions\PokemonTranslator.Abstractions.csproj" />
     <ProjectReference Include="..\PokemonTranslator.DTO\PokemonTranslator.DTO.csproj" />
-    <ProjectReference Include="..\PokemonTranslator.Providers\PokemonTranslator.Services.csproj" />
+    <ProjectReference Include="..\PokemonTranslator.Services\PokemonTranslator.Services.csproj" />
   </ItemGroup>
 
 

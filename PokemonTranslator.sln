@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokemonTranslator.DTO", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokemonTranslator.Abstractions", "src\PokemonTranslator.Abstractions\PokemonTranslator.Abstractions.csproj", "{82E3E201-B32C-4557-AD04-31CC96A90C14}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokemonTranslator.Services", "src\PokemonTranslator.Providers\PokemonTranslator.Services.csproj", "{0C879F5A-A57C-4416-ACEB-2B6DE83FAD23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokemonTranslator.Services", "src\PokemonTranslator.Services\PokemonTranslator.Services.csproj", "{0C879F5A-A57C-4416-ACEB-2B6DE83FAD23}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokemonTranslator.Services.Tests", "tests\PokemonTranslator.Services.Tests\PokemonTranslator.Services.Tests.csproj", "{86B45B3B-1786-4E2E-9C62-16E87E8FBAF7}"
 EndProject

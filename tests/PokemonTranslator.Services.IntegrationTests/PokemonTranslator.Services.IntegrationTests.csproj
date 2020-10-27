@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\PokemonTranslator.Providers\PokemonTranslator.Services.csproj" />
+    <ProjectReference Include="..\..\src\PokemonTranslator.Services\PokemonTranslator.Services.csproj" />
   </ItemGroup>
 
 </Project>
