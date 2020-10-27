@@ -32,8 +32,8 @@ namespace PokemonTranslator.API.Tests
 			var pokemonDTO = pokemon.ToDTO();
 
 			pokemonDTO.Should().NotBeNull();
-			pokemonDTO.Name.Should().Equals(name);
-			pokemonDTO.Description.Should().Equals(translatedDescription);
+			pokemonDTO.Name.Should().Be(name);
+			pokemonDTO.Description.Should().Be(translatedDescription);
 		}
 	}
 }

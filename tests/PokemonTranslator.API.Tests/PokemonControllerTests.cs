@@ -42,7 +42,7 @@ namespace PokemonTranslator.API.Tests
 				.ReturnsAsync(
 					new Pokemon() 
 					{ 
-						Name = pokemonName, Description = expectedDescription
+						Name = pokemonName, Description = expectedDescription, TranslatedDescription = expectedDescription
 					});
 			var controller = new PokemonController(NullLogger<PokemonController>.Instance, pokemonService.Object);
 
@@ -52,8 +52,8 @@ namespace PokemonTranslator.API.Tests
 			var okResult = actionResult.Result as OkObjectResult;
 			okResult.Value.Should().BeOfType<PokemonDTO>();
 			var pokemon = okResult.Value as PokemonDTO;
-			pokemon.Name.Should().Equals(pokemonName);
-			pokemon.Description.Should().Equals(expectedDescription);
+			pokemon.Name.Should().Be(pokemonName);
+			pokemon.Description.Should().Be(expectedDescription);
 		}
 
 		[Theory]
