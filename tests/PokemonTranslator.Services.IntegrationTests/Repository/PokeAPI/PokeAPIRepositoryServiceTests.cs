@@ -16,7 +16,7 @@ namespace PokemonTranslator.Services.IntegrationTests.Repository.PokeAPI
 		[InlineData(null)]
 		public void GetPokemon_InvalidName_ShouldThrownArgumentExcpetionAsync(string name)
 		{
-			var service = new PokeAPIrepositoryService();
+			var service = new PokeAPIRepositoryService();
 
 			Func<Task<PokemonData>> func = async () => await service.GetPokemon(name);
 
@@ -27,7 +27,7 @@ namespace PokemonTranslator.Services.IntegrationTests.Repository.PokeAPI
 		[InlineData("not-existing")]
 		public async void GetPokemon_NotExistingPokemon_ShouldReturnNull(string name)
 		{
-			var service = new PokeAPIrepositoryService();
+			var service = new PokeAPIRepositoryService();
 
 			var pokemon = await service.GetPokemon(name);
 
@@ -38,7 +38,7 @@ namespace PokemonTranslator.Services.IntegrationTests.Repository.PokeAPI
 		[MemberData(nameof(GetValidPokemonTestData))]
 		public async void GetPokemon_ExistingPokemon_ShouldReturnExpectedData(string name, string expectedDescription)
 		{
-			var service = new PokeAPIrepositoryService();
+			var service = new PokeAPIRepositoryService();
 
 			var pokemon = await service.GetPokemon(name);
 

@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace PokemonTranslator.Services.Repository.PokeAPI
 {
-	public class PokeAPIrepositoryService : IPokemonRepositoryService
+	public class PokeAPIRepositoryService : IPokemonRepositoryService
 	{
 		private readonly PokeApiClient _pokeApiClient = new PokeApiClient();
 
-		public PokeAPIrepositoryService()
+		public PokeAPIRepositoryService()
 		{
 		}
 
