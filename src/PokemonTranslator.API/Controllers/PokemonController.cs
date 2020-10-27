@@ -11,6 +11,9 @@ using PokemonTranslator.API.Exstensions;
 
 namespace PokemonTranslator.API.Controllers
 {
+	/// <summary>
+	/// Pokemon controller
+	/// </summary>
 	[ApiController]
 	[Route("[controller]")]
 	public class PokemonController : ControllerBase
@@ -24,6 +27,11 @@ namespace PokemonTranslator.API.Controllers
 			_pokemonService = pokemonService;
 		}
 
+		/// <summary>
+		/// Returns a pokemon translated description given its name.
+		/// </summary>
+		/// <param name="pokemonName">The pokemon name</param>
+		/// <returns><see cref="PokemonDTO"/>.</returns>
 		[HttpGet]
 		[Route("{pokemonName}")]
 		[ProducesResponseType(StatusCodes.Status200OK)]

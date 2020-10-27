@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using PokemonTranslator.Abstractions.Services;
 using PokemonTranslator.API.Config;
 using PokemonTranslator.Services;
@@ -39,6 +42,16 @@ namespace PokemonTranslator.API
 			services.AddSingleton<ITranslationService>(translationService);
 			services.AddSingleton<IPokemonTranslationService, PokemonTranslationService>();
 			services.AddControllers();
+
+			services.AddSwaggerGen(c =>
+			{
+				c.SwaggerDoc("v1", new OpenApiInfo { Title = "Pokemon Translator API", Version = "v1" });
+				
+				// Set the comments path for the Swagger JSON and UI.
+				var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+				var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+				c.IncludeXmlComments(xmlPath);
+			});
 		}
 
 		private ITranslationService GetTranslationService()
@@ -90,6 +103,17 @@ namespace PokemonTranslator.API
 			}
 
 			app.UseHttpsRedirection();
+
+			// Enable middleware to serve generated Swagger as a JSON endpoint.
+			app.UseSwagger();
+
+			// Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+			// specifying the Swagger JSON endpoint.
+			app.UseSwaggerUI(c =>
+			{
+				c.SwaggerEndpoint("/swagger/v1/swagger.json", "Pokemon Translator API v1");
+				c.RoutePrefix = string.Empty;
+			});
 
 			app.UseRouting();
 
