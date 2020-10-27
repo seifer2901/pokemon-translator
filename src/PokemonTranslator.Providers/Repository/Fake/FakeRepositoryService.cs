@@ -11,6 +11,10 @@ using System.Threading.Tasks;
 
 namespace PokemonTranslator.Services.Repository.Fake
 {
+	/// <summary>
+	/// FakeRepositoryService
+	/// Fake implementation, return fixed description text containing pokemon name
+	/// </summary>
 	public class FakeRepositoryService : IPokemonRepositoryService
 	{
 		public FakeRepositoryService()

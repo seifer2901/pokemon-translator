@@ -11,6 +11,11 @@ using System.Threading.Tasks;
 
 namespace PokemonTranslator.Services.Repository.PokeAPI
 {
+	/// <summary>
+	/// PokeAPIRepositoryService
+	/// Wrapper for getting pokemon data from https://pokeapi.co/
+	/// Used PokeAPI clint helper nuget package - https://github.com/mtrdp642/PokeApiNet
+	/// </summary>
 	public class PokeAPIRepositoryService : IPokemonRepositoryService
 	{
 		private readonly PokeApiClient _pokeApiClient = new PokeApiClient();
