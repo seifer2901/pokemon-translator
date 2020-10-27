@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokemonTranslator.Abstracti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokemonTranslator.Services", "src\PokemonTranslator.Providers\PokemonTranslator.Services.csproj", "{0C879F5A-A57C-4416-ACEB-2B6DE83FAD23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonTranslator.Services.Tests", "tests\PokemonTranslator.Services.Tests\PokemonTranslator.Services.Tests.csproj", "{86B45B3B-1786-4E2E-9C62-16E87E8FBAF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokemonTranslator.Services.Tests", "tests\PokemonTranslator.Services.Tests\PokemonTranslator.Services.Tests.csproj", "{86B45B3B-1786-4E2E-9C62-16E87E8FBAF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonTranslator.Services.IntegrationTests", "tests\PokemonTranslator.Services.IntegrationTests\PokemonTranslator.Services.IntegrationTests.csproj", "{8EB6A577-BB43-4EC1-910C-9E7D2830EE1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{86B45B3B-1786-4E2E-9C62-16E87E8FBAF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86B45B3B-1786-4E2E-9C62-16E87E8FBAF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86B45B3B-1786-4E2E-9C62-16E87E8FBAF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EB6A577-BB43-4EC1-910C-9E7D2830EE1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EB6A577-BB43-4EC1-910C-9E7D2830EE1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EB6A577-BB43-4EC1-910C-9E7D2830EE1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EB6A577-BB43-4EC1-910C-9E7D2830EE1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

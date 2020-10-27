@@ -1,10 +1,11 @@
 using Moq;
-using PokemonTranslator.Providers;
+using PokemonTranslator.Services;
 using System;
 using Xunit;
 using FluentAssertions;
 using System.Threading.Tasks;
 using PokemonTranslator.Abstractions.Services;
+using PokemonTranslator.Services.Repository.PokeAPI;
 
 namespace PokemonTranslator.Services.Tests
 {

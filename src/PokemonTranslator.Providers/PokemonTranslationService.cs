@@ -3,7 +3,7 @@ using PokemonTranslator.Abstractions.Models;
 using System;
 using System.Threading.Tasks;
 
-namespace PokemonTranslator.Providers
+namespace PokemonTranslator.Services
 {
 	public class PokemonTranslationService : IPokemonTranslationService
 	{

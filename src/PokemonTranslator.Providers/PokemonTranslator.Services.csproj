@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="PokeApiNet" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\PokemonTranslator.Abstractions\PokemonTranslator.Abstractions.csproj" />
   </ItemGroup>
 
