@@ -1,20 +1,45 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+Sample Asp.Net.Core web API application to excercise TDD, Dependency Injection & Docker principles.
 
 # Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
+1.	Run
+	- Execute docker-build.sh
+	- Execute docker-run.sh
+	- Navigate to http://localhost:3000
+	
 2.	Software dependencies
-3.	Latest releases
-4.	API references
+	- .NET Core 3.1
+	
+3.	API references
+	- Swagger endpoint available at http://localhost:3000/index.html
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+# Description
+The GET Api pokemon/<pokemon-name> search a pokemon in the configured repository, and returns its translated description.
+The translation is done using the configured provider.
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+# Available repository service types
+	- PokeAPI repository
+		Use PokeApi as source repository https://pokeapi.co/
+	- Fake repository
+		Return a fake description containing the given pokemon name
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+	PokeAPI is the default configuration.
+	It is possible to override the configuration directly in the appsettings.json
+	(key RepositoryServiceType)
+
+# Available translation service types
+	- Fake translation
+		Simply converts the description to upper case text
+	- Shakespeare translation - NOT IMPLEMENTED
+		Return shakespeare description using api from https://funtranslations.com/shakespeare
+
+	Fake is the default configuration.
+	It is possible to override the configuration directly in the appsettings.json (key TranslationServiceType)
+	Configuring Shakespeare will lead to a not implemented excpetion
+	
+# Overriding configurations with docker-build
+It is possible to override any configuration using env variables.
+
+For example to run the docker image configuring a Fake repository service you can do the following:
+
+	docker run -e "RepositoryServiceType=Fake"
