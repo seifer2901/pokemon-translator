@@ -1,0 +1,1 @@
+docker run --publish 3000:80 --detach --name pokemon-translator pokemon-translator:latest
