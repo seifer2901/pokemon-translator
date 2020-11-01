@@ -4,8 +4,8 @@
 .gitignore
 .vs
 .vscode
-*/bin
-*/obj
+**/obj
+**/bin
 **/.toolstarget
 Docker*.sh
 README.md

@@ -31,15 +31,15 @@ COPY . .
 ARG buildConfiguration=Release
 ENV BUILD_CONFIGURATION=${buildConfiguration}
 
-# run unit tests
-RUN dotnet test "./tests/PokemonTranslator.API.Tests/PokemonTranslator.API.Tests.csproj" --no-build --no-restore -c ${buildConfiguration}
-RUN dotnet test "./tests/PokemonTranslator.Services.Tests/PokemonTranslator.Services.Tests.csproj" --no-build --no-restore -c ${buildConfiguration}
-
-# run integration tests
-RUN dotnet test "./tests/PokemonTranslator.Services.IntegrationTests/PokemonTranslator.Services.IntegrationTests.csproj" --no-build --no-restore -c ${buildConfiguration}
-
 # build solution
 RUN dotnet build "PokemonTranslator.sln" -c ${buildConfiguration} -o /app/build
+
+# run unit tests
+RUN dotnet test "./tests/PokemonTranslator.API.Tests/PokemonTranslator.API.Tests.csproj" --no-restore -c ${buildConfiguration}
+RUN dotnet test "./tests/PokemonTranslator.Services.Tests/PokemonTranslator.Services.Tests.csproj" --no-restore -c ${buildConfiguration}
+
+# run integration tests
+RUN dotnet test "./tests/PokemonTranslator.Services.IntegrationTests/PokemonTranslator.Services.IntegrationTests.csproj" --no-restore -c ${buildConfiguration}
 
 FROM build AS publish
 RUN dotnet publish "./src/PokemonTranslator.API/PokemonTranslator.API.csproj" -c ${buildConfiguration} -o /app/publish
