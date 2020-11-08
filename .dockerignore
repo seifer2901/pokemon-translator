@@ -9,3 +9,4 @@
 **/.toolstarget
 Docker*.sh
 README.md
+**/.local-chromium
