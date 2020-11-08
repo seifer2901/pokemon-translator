@@ -3,9 +3,17 @@ Sample Asp.Net.Core web API application to excercise TDD, Dependency Injection &
 
 # Getting Started
 1.	Run
+	
+	Using docker
 	- Execute docker-build.sh
 	- Execute docker-run.sh
 	- Navigate to http://localhost:3000
+
+	Local build
+	- cd .\src\PokemonTranslator.API
+	- dotnet publish -c Release
+	- run src\PokemonTranslator.API\bin\Release\netcoreapp3.1\publish\PokemonTranlsator.exe
+	- Navigate to the url displayed in the console
 	
 2.	Software dependencies
 	- .NET Core 3.1
@@ -30,10 +38,10 @@ The translation is done using the configured provider.
 # Available translation service types
 	- Fake translation
 		Simply converts the description to upper case text
-	- Shakespeare translation - NOT IMPLEMENTED
-		Return shakespeare description using api from https://funtranslations.com/shakespeare
+	- Shakespeare translation
+		Return shakespeare description using https://lingojam.com/EnglishtoShakespearean
 
-	Fake is the default configuration.
+	Shakespeare is the default configuration.
 	It is possible to override the configuration directly in the appsettings.json (key TranslationServiceType)
 	Configuring Shakespeare will lead to a not implemented excpetion
 	
