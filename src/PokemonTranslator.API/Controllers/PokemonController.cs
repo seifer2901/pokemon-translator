@@ -47,7 +47,7 @@ namespace PokemonTranslator.API.Controllers
 			var pokemon = await _pokemonService.GetPokemon(pokemonName);
 
 			if (pokemon is null)
-				return NotFound(pokemonName);
+				return NotFound($"Pokemon {pokemonName} not found");
 			else
 				return Ok(pokemon.ToDTO());
 		}
